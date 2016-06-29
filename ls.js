@@ -1,4 +1,4 @@
 var ls = function(fileName) {
-  scriptLocation = "/home/jikkujose/Ethereum/scripts/";
+  scriptLocation = "/Users/jikkujose/Ethereum/scripts/";
   return loadScript(scriptLocation + fileName + ".js");
 }
