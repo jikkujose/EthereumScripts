@@ -1,4 +1,6 @@
+loadScript("/home/jikkujose/Ethereum/scripts/meta.js")
+
 var ls = function(fileName) {
-  scriptLocation = "/Users/jikkujose/Ethereum/scripts/";
+  scriptLocation = meta.home + "Ethereum/scripts/";
   return loadScript(scriptLocation + fileName + ".js");
 }
