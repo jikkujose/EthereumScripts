@@ -13,3 +13,21 @@ if(meta.OS == 'linux') {
 } else {
   meta.home = '/Users/jikkujose/'
 }
+
+meta.scriptDirectory = meta.home + "Ethereum/scripts/"
+
+loadScript(meta.scriptDirectory + 'ls.js')
+
+meta.ls = ls;
+
+meta.lsAll = function(files) {
+  files.forEach(function(file) {
+    meta.ls(file)
+    meta[file] = eval(file)
+  });
+}
+
+meta.lsAll([
+  'cab',
+  'transact'
+]);
