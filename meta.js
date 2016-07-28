@@ -29,7 +29,8 @@ meta.lsAll = function(files) {
 
 meta.lsAll([
   'cab',
-  'transact'
+  'transact',
+  'newAccount'
 ]);
 
 meta.peerVersions = function() {
@@ -43,3 +44,5 @@ meta.addPeers = function() {
     admin.addPeer(peer);
   });
 }
+
+meta.accounts = []
