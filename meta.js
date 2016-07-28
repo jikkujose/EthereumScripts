@@ -29,5 +29,18 @@ meta.lsAll = function(files) {
 
 meta.lsAll([
   'cab',
-  'transact'
+  'transact',
+  'etcEnodes'
 ]);
+
+meta.peerVersions = function() {
+  return(admin.peers.forEach(function(peer) {
+    console.log(peer.name);
+  }));
+}
+
+meta.addPeers = function() {
+  meta.etcEnodes.forEach(function(peer) {
+    admin.addPeer(peer);
+  });
+}
