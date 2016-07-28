@@ -29,8 +29,7 @@ meta.lsAll = function(files) {
 
 meta.lsAll([
   'cab',
-  'transact',
-  'etcEnodes'
+  'transact'
 ]);
 
 meta.peerVersions = function() {
