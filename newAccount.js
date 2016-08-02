@@ -1,10 +1,11 @@
-var newAccount = function(label, type) {
+meta.newAccount = function(owner, label, type) {
   address = personal.newAccount();
   account = {
     address: address,
+    owner: owner,
+    type: type,
     label: label,
-    type: type
   }
 
-  meta.accounts.push(account);
+  meta.wallets.push(account);
 }

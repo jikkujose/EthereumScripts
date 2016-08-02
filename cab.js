@@ -1,5 +1,5 @@
-var accounts = function(index) {
-  var account = {
+accountCollection = function(index) {
+  account = {
     address: eth.accounts[index],
     balance: function() {
       return eth.getBalance(this.address);
@@ -29,10 +29,10 @@ var accounts = function(index) {
   return account;
 }
 
-function cab() {
+meta.cab = function cab() {
   result = eth
     .accounts
     .forEach(function(_, index) {
-      console.log(accounts(index).prettyBalance());
+      console.log(accountCollection(index).prettyBalance());
     })
 };

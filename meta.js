@@ -16,33 +16,12 @@ if(meta.OS == 'linux') {
 
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
-loadScript(meta.scriptDirectory + 'ls.js')
-
-meta.ls = ls;
-
-meta.lsAll = function(files) {
-  files.forEach(function(file) {
-    meta.ls(file)
-    meta[file] = eval(file)
-  });
-}
-
-meta.lsAll([
+files = [
   'cab',
-  'transact',
-  'newAccount'
-]);
+  'newAccount',
+  'wallets'
+]
 
-meta.peerVersions = function() {
-  return(admin.peers.forEach(function(peer) {
-    console.log(peer.name);
-  }));
-}
-
-meta.addPeers = function() {
-  meta.etcEnodes.forEach(function(peer) {
-    admin.addPeer(peer);
-  });
-}
-
-meta.accounts = []
+files.forEach(function(file) {
+  loadScript(meta.scriptDirectory + file + '.js')
+});
