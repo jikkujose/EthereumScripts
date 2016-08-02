@@ -18,8 +18,10 @@ meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
 files = [
   'cab',
+  'ls',
   'newAccount',
-  'wallets'
+  'wallets',
+  'contracts/amIOnTheFork'
 ]
 
 files.forEach(function(file) {
