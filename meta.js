@@ -1,17 +1,19 @@
-var info = admin.nodeInfo.name
 var meta = {}
+var tmp = {}
+tmp.username = "jikkujose"
 
+meta.info = admin.nodeInfo.name
 
-if(/linux/.test(info)){
+if(/linux/.test(meta.info)){
   meta.OS = 'linux'
 } else {
   meta.OS = 'mac'
 }
 
 if(meta.OS == 'linux') {
-  meta.home = '/home/jikkujose/'
+  meta.home = '/home/' + tmp.username + '/'
 } else {
-  meta.home = '/Users/jikkujose/'
+  meta.home = '/Users/' + tmp.username + '/'
 }
 
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
@@ -27,3 +29,9 @@ files = [
 files.forEach(function(file) {
   loadScript(meta.scriptDirectory + file + '.js')
 });
+
+if(meta.amIOnTheFork.instance().forked()) {
+  meta.chain = "Forked"
+} else {
+  meta.chain = "Classic"
+}
