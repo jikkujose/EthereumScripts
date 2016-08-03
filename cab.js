@@ -11,14 +11,14 @@ accountCollection = function(index) {
             this.shortAddress() +
             " | " +
             this.balanceInEther() +
-            " eth"
+            (meta.chain == "Forked" ? " ETH" : " ETC")
           );
     },
     shortAddress: function() {
       return(
-          this.address.slice(0, 6) +
+          this.address.slice(0, 8) +
           ".." +
-          this.address.slice(-4, this.address.length)
+          this.address.slice(-6, this.address.length)
           );
     },
     balanceInEther: function() {
