@@ -1,4 +1,4 @@
-accountCollection = function(index) {
+tmp.accountCollection = function(index) {
   account = {
     address: eth.accounts[index],
     balance: function() {
@@ -29,10 +29,10 @@ accountCollection = function(index) {
   return account;
 }
 
-meta.cab = function cab() {
+meta.balances = function(type) {
   result = eth
     .accounts
     .forEach(function(_, index) {
-      console.log(accountCollection(index).prettyBalance());
+      console.log(tmp.accountCollection(index).prettyBalance());
     })
 };
