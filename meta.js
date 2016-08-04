@@ -25,6 +25,7 @@ files = [
   'ls',
   'newAccount',
   'wallets',
+  'converters',
   'contracts/amIOnTheFork',
   'contracts/replaySafeSplit'
 ]
