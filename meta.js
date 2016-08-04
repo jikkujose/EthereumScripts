@@ -21,7 +21,7 @@ if(meta.OS == 'linux') {
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
 files = [
-  'cab',
+  'balances',
   'ls',
   'newAccount',
   'wallets',
