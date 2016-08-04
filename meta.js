@@ -1,10 +1,12 @@
 var meta = {}
+var contracts = {}
+var wallets = []
+
 var tmp = {}
+tmp.info = admin.nodeInfo.name
 tmp.username = "jikkujose"
 
-meta.info = admin.nodeInfo.name
-
-if(/linux/.test(meta.info)){
+if(/linux/.test(tmp.info)){
   meta.OS = 'linux'
 } else {
   meta.OS = 'mac'
@@ -23,14 +25,15 @@ files = [
   'ls',
   'newAccount',
   'wallets',
-  'contracts/amIOnTheFork'
+  'contracts/amIOnTheFork',
+  'contracts/replaySafeSplit'
 ]
 
 files.forEach(function(file) {
   loadScript(meta.scriptDirectory + file + '.js')
 });
 
-if(meta.amIOnTheFork.instance().forked()) {
+if(contracts.amIOnTheFork.instance().forked()) {
   meta.chain = "Forked"
 } else {
   meta.chain = "Classic"

@@ -1,4 +1,4 @@
-meta.amIOnTheFork = {
+contracts.amIOnTheFork = {
   abi: [
     {
       "constant": true,
