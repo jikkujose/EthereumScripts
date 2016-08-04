@@ -22,7 +22,7 @@ accountCollection = function(index) {
           );
     },
     balanceInEther: function() {
-      return web3.fromWei(this.balance(), 'ether').toFixed(4);
+      return web3.fromWei(this.balance(), 'ether').toFixed(2);
     },
   }
 
