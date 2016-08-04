@@ -7,5 +7,7 @@ meta.newAccount = function(owner, label, type) {
     label: label,
   }
 
-  meta.wallets.push(account);
+  wallets.push(account)
+
+  return(account);
 }
