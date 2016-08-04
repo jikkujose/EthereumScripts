@@ -1,4 +1,5 @@
 contracts.replaySafeSplit = {
+  address: '0xaa1a6e3e6ef20068f7f8d8c835d2d22fd5116444',
   abi: [
     {
       "constant": false,
@@ -22,10 +23,6 @@ contracts.replaySafeSplit = {
       "type": "function"
     }
   ],
-  address: '0xaa1a6e3e6ef20068f7f8d8c835d2d22fd5116444',
-  preForkAddress: null,
-  ethAddress: null,
-  etcAddress: null,
   contract: function() {
     return(
       web3.eth.contract(this.abi)
@@ -36,35 +33,20 @@ contracts.replaySafeSplit = {
       this.contract().at(this.address)
     );
   },
-  setAddresses: function(preForkAddress, ethAddress, etcAddress) {
-    this.preForkAddress = preForkAddress;
-    this.ethAddress = ethAddress;
-    this.etcAddress = etcAddress;
-  },
-  splitSafely: function(value) {
-    if(
-      !this.preForkAddress ||
-        !this.ethAddress ||
-        !this.etcAddress
-    ) {
-      throw('setAddresses(...) needs to be called before splitting!')
-    }
+  splitSafely: function(payload) {
     return(
       this
       .instance()
       .split
       .sendTransaction(
-        this.ethAddress,
-        this.etcAddress,
-        this.getPayload(value)
+        payload.eth,
+        payload.etc,
+        {
+          from: payload.preFork,
+          to: this.address,
+          value: payload.value
+        }
       )
     );
-  },
-  getPayload: function(value) {
-    return({
-      from: this.preForkAddress,
-      to: this.address,
-      value: value
-    });
   },
 }
