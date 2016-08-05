@@ -1,11 +1,14 @@
 helpers = {}
 
 tmp.helpers = [
+  'p',
+  'rightJust',
   'filterByProperty',
   'capitalize',
   'ls',
   'converters',
   'newAccount',
+  'walletFilters',
 ]
 
 tmp.helpers

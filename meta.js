@@ -24,6 +24,7 @@ files = [
   'helpers',
   'contracts',
   'wallets',
+  'balances',
 ]
 
 files.forEach(function(file) {

@@ -6,20 +6,21 @@ tmp.accountCollection = function(index) {
     },
     prettyBalance: function() {
       return(
-            index +
-            " | " +
-            this.shortAddress() +
-            " | " +
-            this.balanceInEther() +
-            (meta.chain == "Forked" ? " ETH" : " ETC")
-          );
+        helpers.rightJust(index + " |", 7) +
+          helpers.rightJust(this.shortAddress() + " |", 20) +
+          helpers.rightJust(this.type() + " |", 7) +
+          helpers.rightJust((this.balanceInEther()), 9)
+      );
+    },
+    type: function() {
+      return(wallets.byAddress(this.address)[0].type);
     },
     shortAddress: function() {
       return(
-          this.address.slice(0, 8) +
+        this.address.slice(0, 9) +
           ".." +
           this.address.slice(-6, this.address.length)
-          );
+      );
     },
     balanceInEther: function() {
       return web3.fromWei(this.balance(), 'ether').toFixed(2);
@@ -29,10 +30,26 @@ tmp.accountCollection = function(index) {
   return account;
 }
 
+tmp.header = function(){
+  return(
+    helpers.rightJust("Index | ", 8) +
+      helpers.rightJust("Address | ", 20) +
+      helpers.rightJust("Type | ", 7) +
+      helpers.rightJust("Balance", 8) +
+      "\n" +
+      helpers.rightJust(" | ", 8, "-") +
+      helpers.rightJust(" | ", 20, "-") +
+      helpers.rightJust(" | ", 7, "-") +
+      helpers.rightJust("  ", 10, "-")
+  );
+},
+
 meta.balances = function(type) {
+  helpers.p(tmp.header());
+
   result = eth
     .accounts
     .forEach(function(_, index) {
-      console.log(tmp.accountCollection(index).prettyBalance());
+      helpers.p(tmp.accountCollection(index).prettyBalance());
     })
 };

@@ -1,3 +1,5 @@
 helpers.ls = function(file) {
-  return loadScript(meta.scriptLocation + file + ".js");
+  tmp.loc = meta.scriptDirectory + file + ".js"
+  console.log(meta.scriptDirectory)
+  return loadScript(tmp.loc);
 }
