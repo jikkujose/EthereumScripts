@@ -1,3 +1,3 @@
-meta.ls = function(file) {
+helpers.ls = function(file) {
   return loadScript(meta.scriptLocation + file + ".js");
 }

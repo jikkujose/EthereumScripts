@@ -21,13 +21,9 @@ if(meta.OS == 'linux') {
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
 files = [
-  'balances',
-  'ls',
-  'newAccount',
+  'helpers',
+  'contracts',
   'wallets',
-  'converters',
-  'contracts/amIOnTheFork',
-  'contracts/replaySafeSplit'
 ]
 
 files.forEach(function(file) {
