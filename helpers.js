@@ -9,6 +9,7 @@ tmp.helpers = [
   'converters',
   'newAccount',
   'walletFilters',
+  'unlockAccountByIndex',
 ]
 
 tmp.helpers
