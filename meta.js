@@ -24,7 +24,7 @@ files = [
   'helpers',
   'contracts',
   'wallets',
-  'balances',
+  'meta/balances',
 ]
 
 files.forEach(function(file) {

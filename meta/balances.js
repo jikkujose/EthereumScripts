@@ -9,7 +9,7 @@ tmp.accountCollection = function(index) {
         helpers.rightJust(index + " |", 7) +
           helpers.rightJust(this.shortAddress() + " |", 20) +
           helpers.rightJust(this.type() + " |", 7) +
-          helpers.rightJust((this.balanceInEther()), 9)
+          helpers.rightJust((this.balanceInEther()), 8)
       );
     },
     type: function() {
@@ -35,12 +35,12 @@ tmp.header = function(){
     helpers.rightJust("Index | ", 8) +
       helpers.rightJust("Address | ", 20) +
       helpers.rightJust("Type | ", 7) +
-      helpers.rightJust("Balance", 8) +
+      helpers.rightJust("Balance", 7) +
       "\n" +
       helpers.rightJust(" | ", 8, "-") +
       helpers.rightJust(" | ", 20, "-") +
       helpers.rightJust(" | ", 7, "-") +
-      helpers.rightJust("  ", 10, "-")
+      helpers.rightJust("  ", 9, "-")
   );
 },
 
