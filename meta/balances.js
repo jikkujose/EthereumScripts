@@ -13,7 +13,11 @@ tmp.accountCollection = function(index) {
       );
     },
     type: function() {
-      return(wallets.byAddress(this.address)[0].type);
+      var address = wallets.byAddress(this.address)[0]
+
+      return(
+        address ? address.type : '   '
+      );
     },
     shortAddress: function() {
       return(
