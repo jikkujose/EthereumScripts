@@ -1,33 +1,38 @@
-var info = admin.nodeInfo.name
 var meta = {}
+var contracts = {}
+var wallets = []
 
+var tmp = {}
+tmp.info = admin.nodeInfo.name
+tmp.username = "jikkujose"
 
-if(/linux/.test(info)){
+if(/linux/.test(tmp.info)){
   meta.OS = 'linux'
 } else {
   meta.OS = 'mac'
 }
 
 if(meta.OS == 'linux') {
-  meta.home = '/home/jikkujose/'
+  meta.home = '/home/' + tmp.username + '/'
 } else {
-  meta.home = '/Users/jikkujose/'
+  meta.home = '/Users/' + tmp.username + '/'
 }
 
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
-loadScript(meta.scriptDirectory + 'ls.js')
+files = [
+  'helpers',
+  'contracts',
+  'wallets',
+  'meta/balances',
+]
 
-meta.ls = ls;
+files.forEach(function(file) {
+  loadScript(meta.scriptDirectory + file + '.js')
+});
 
-meta.lsAll = function(files) {
-  files.forEach(function(file) {
-    meta.ls(file)
-    meta[file] = eval(file)
-  });
+if(contracts.amIOnTheFork.instance().forked()) {
+  meta.chain = "Forked"
+} else {
+  meta.chain = "Classic"
 }
-
-meta.lsAll([
-  'cab',
-  'transact'
-]);
