@@ -21,9 +21,9 @@ if(meta.OS == 'linux') {
 meta.scriptDirectory = meta.home + "Ethereum/scripts/"
 
 files = [
+  'wallets',
   'helpers',
   'contracts',
-  'wallets',
   'meta/balances',
 ]
 
