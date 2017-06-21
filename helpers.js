@@ -2,6 +2,7 @@ helpers = {}
 
 tmp.helpers = [
   'p',
+  'balance',
   'rightJust',
   'filterByProperty',
   'capitalize',
