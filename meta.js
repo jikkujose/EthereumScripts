@@ -1,3 +1,7 @@
+/*
+ * Note: The scripts only work, if console's jspath is set to its root.
+ */
+
 var meta = {}
 var contracts = {}
 var wallets = []
